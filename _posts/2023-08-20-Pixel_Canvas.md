@@ -35,6 +35,7 @@ type: hacks
     <input id="color_input" type="color" value="#000000">
     <button id="undo_button" onclick="undoMove()">UNDO</button>
     <button id="reset_button" onclick="createCanvas()">RESET</button>
+    <button id="export_button" onclick="tableToImage()">EXPORT</button>
 </div>
 
 <table id="canvas" class="canvas" margin="0">
@@ -92,10 +93,9 @@ type: hacks
                 newPixel.setAttribute("class", "pixel");
                 newPixel.setAttribute("id", "pixel" + String(pixId));
                 newPixel.setAttribute("style", "width:" + String(pixelDimensions) + "px;height:" + String(pixelDimensions) + "px;");
-                newPixel.setAttribute("onclick", "changeColor('pixel" + String(pixId) + "')");
-                newPixel.addEventListener("mousedown", () => {isMousePressed = true;});
+                //newPixel.setAttribute("onclick", "changeColor('pixel" + String(pixId) + "')");
+                newPixel.addEventListener("mousedown", mdownHandler);
                 newPixel.addEventListener("mouseup", () => {isMousePressed = false});
-                newPixel.addEventListener("mouseleave", holdHandler);
                 newPixel.addEventListener("mouseenter", holdHandler);
                 newRow.appendChild(newPixel);
                 pixId++;
@@ -105,19 +105,25 @@ type: hacks
         }
     }
 
+    //event handler specifically for the mousedown state that will immediately fill in the given square
+    function mdownHandler(event) {
+        isMousePressed = true;
+        changeColor(event.target.id);
+    }
+
+    //event handler function that uses its parameter to retrieve the target of the event for ID use
     function holdHandler(event) {
         if (isMousePressed) {
             changeColor(event.target.id);
         }
     }
 
+    //changes the color of a pixel with argument pixel ID    
     function changeColor(pixelID) {
         currentColor = colorInput.value;
         var changePixel = document.getElementById(pixelID);
-        if (currentColor != changePixel.style["background"]) {
-            colorHistory.push([pixelID, changePixel.style["background"]]);
-            changePixel.style["background"] = currentColor;
-        }
+        colorHistory.push([pixelID, changePixel.style["background"]]);
+        changePixel.style["background"] = currentColor;
     }
 
     function undoMove() {
