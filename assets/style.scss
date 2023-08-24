@@ -1,0 +1,49 @@
+/* style the banner container */
+.banner {
+    background-color: #6a1b9a; /* dark purple */
+    padding: 10px 0; /* add padding for spacing */
+}
+
+/* Style the header container */
+.header-container {
+    margin:0;
+    /* Add styles for the container */
+}
+
+/* Style the navigation list */
+.header-container .nav-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+  
+/* style the navigation list */
+.nav-list {
+    list-style-type: none; /* Remove default list bullet */
+    display: flex; /* display list items horizontally */
+    justify-content: center; /* center-align list items */
+    padding: 0; /* remove default padding */
+    margin: 0; /* remove default margin */
+}
+
+/* style the navigation items (buttons) */
+.nav-item {
+    margin: 0 10px; /* add spacing between buttons */
+}
+
+.nav-item a {
+    text-decoration: none; /* remove underline from links */
+    color: #fff; /* Text color */
+    background-color: #3498db; /* button background color (electric blue) */
+    padding: 8px 16px; /* add padding to buttons */
+    border-radius: 20px; /* add rounded corners */
+    display: inline-block; /* make buttons inline */
+    transition: background-color 0.3s ease; /* smoooooooth hover effect */
+}
+
+/* hover effect for buttons */
+.nav-item a:hover {
+    background-color: #9b59b6; /* change background color on hover (orchid) */
+}

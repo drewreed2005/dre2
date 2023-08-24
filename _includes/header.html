@@ -1,14 +1,74 @@
-<header class="site-header">
+<link rel="stylesheet" href="{{site.baseurl}}/assets/style.scss">
+<style>
+  /* fixing midnight wrapper */
+  .wrapper {max-width: 100%; padding: 0;}
 
-  <div id="header">
+  /* style the banner container */
+  .banner {
+      background-color: #333333; /* dark purple */
+      padding: 10px 10px; /* add padding for spacing */
+      padding-bottom: 30px;
+      position: relative;
+      z-index: 1;
+      width: 100%; /* Set the width to 100% of the viewport */
+  }
+
+  /* Style the header container */
+  .header-container {
+      margin:0;
+      /* Add styles for the container */
+  }
+
+  /* Style the navigation list */
+  .header-container .nav-list {
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      padding-top: 2vh;
+      margin: 0;
+  }
+    
+  /* style the navigation list */
+  .nav-list {
+      list-style-type: none; /* Remove default list bullet */
+      display: flex; /* display list items horizontally */
+      justify-content: center; /* center-align list items */
+      padding: 0; /* remove default padding */
+      margin: 0; /* remove default margin */
+  }
+
+  /* style the navigation items (buttons) */
+  .nav-item {
+      margin: 0 8px; /* add spacing between buttons */
+      font-family: 'Open Sans', sans-serif;
+      font-size: 4vh;
+  }
+
+  .nav-item a {
+      text-decoration: none; /* remove underline from links */
+      color: #fff; /* Text color */
+      background-color: #3498db; /* button background color (electric blue) */
+      padding: 8px 16px; /* add padding to buttons */
+      border-radius: 20px; /* add rounded corners */
+      display: inline-block; /* make buttons inline */
+      transition: background-color 0.3s ease; /* smoooooooth hover effect */
+  }
+
+  /* hover effect for buttons */
+  .nav-item a:hover {
+      background-color: #9b59b6; /* change background color on hover (orchid) */
+  }
+</style>
+<header class="site-header navbar">
+
+  <div id="banner" class="header-container banner">
     <nav>
-      <ul>
-        <li class="fork"><a href="{{site.baseurl}}/">Home</a></li>
-        <li class="fork"><a href="{{site.baseurl}}/csse">CSSE</a></li>
-        <li class="fork"><a href="{{site.baseurl}}/csp">CSP</a></li>
-        <li class="fork"><a href="{{site.baseurl}}/csa">CSA</a></li>
-        <li class="fork"><a href="{{site.baseurl}}/blogs">Blogs</a></li>
-        <li class="title"><a href="{{ site.github.repository_url }}#readme">View On GitHub</a></li>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="{{site.baseurl}}/">Home</a></li>
+        <li class="nav-item"><a href="{{site.baseurl}}/games">Games</a></li>
+        <li class="nav-item"><a href="{{site.baseurl}}/blogs">Blogs</a></li>
+        <li class="title nav-item"><a href="{{ site.github.repository_url }}#readme">View On GitHub</a></li>
       </ul>
     </nav>
   </div><!-- end header -->

@@ -3,15 +3,47 @@
 
 {%- include head.html -%}
 
+<style>
+  .default-wrapper {
+    padding-left: 25%;
+    padding-right: 35%;
+    margin-top: 0%;
+    background-color: black;
+    color: #e0e0e0;
+    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    height: 100%;
+  }
+
+  h2 {
+    color: black;
+    font-weight: bold;
+    text-shadow:
+      -1px -1px 0 white, /* Top left */
+      1px -1px 0 white,  /* Top right */
+      -1px 1px 0 white,  /* Bottom left */
+      1px 1px 0 white;   /* Bottom right */
+    font-size: 4vh;
+  }
+
+  a {
+    color: #3498db;
+  }
+
+  a:hover {
+    color: #9b59b6;
+    text-decoration: underline;
+  }
+</style>
 <body>
 
-  <div class="wrapper">
+  <div class="wrapper" style="padding:0px">
     <header>
       {%- include header.html -%}
     </header>
 
 
-    <section>
+    <section class="default-wrapper">
       {{ content }}
     </section>
 
