@@ -35,7 +35,6 @@ type: hacks
     <input id="color_input" type="color" value="#000000">
     <button id="undo_button" onclick="undoMove()">UNDO</button>
     <button id="reset_button" onclick="createCanvas()">RESET</button>
-    <button id="export_button" onclick="tableToImage()">EXPORT</button>
 </div>
 
 <table id="canvas" class="canvas" margin="0">
