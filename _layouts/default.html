@@ -57,9 +57,29 @@
     text-decoration: underline;
   }
 
-  .flower_bullet1 {
-    list-style-image: url("{{site.baseurl}}/images/bullet-points/blueSBflower.png")
-  }
+  .flower-bullet1 {
+        list-style-image: url("{{site.baseurl}}/images/bullet-points/mediumpinkSBflower.png");
+        background-repeat: no-repeat; /* Prevent image repetition */
+        background-size: auto; /* Automatically adjust the size based on text */;
+    }
+
+    .flower-bullet2 {
+        list-style-image: url("{{site.baseurl}}/images/bullet-points/mediumblueSBflower.png");
+        background-repeat: no-repeat; /* Prevent image repetition */
+        background-size: auto; /* Automatically adjust the size based on text */;
+    }
+
+    .flower-bullet3 {
+        list-style-image: url("{{site.baseurl}}/images/bullet-points/mediumgreenSBflower.png");
+        background-repeat: no-repeat; /* Prevent image repetition */
+        background-size: auto; /* Automatically adjust the size based on text */;
+    }
+
+    .flower-bullet4 {
+        list-style-image: url("{{site.baseurl}}/images/bullet-points/mediumyellowSBflower.png");
+        background-repeat: no-repeat; /* Prevent image repetition */
+        background-size: auto; /* Automatically adjust the size based on text */;
+    }
 </style>
 <body>
 
@@ -69,12 +89,25 @@
     </header>
 
 
-    <section class="default-wrapper">
+    <section id="list_check_region" class="default-wrapper">
       {{ content }}
     </section>
 
   </div>
 </body>
 
+<script>
+  const checkRegion = document.getElementById("list_check_region");
+  const listContainers = checkRegion.getElementsByTagName('ul');
+  var arrayContainers = Array.from(listContainers);
+  const listItems = checkRegion.getElementsByTagName('li');
+  var arrayItems = Array.from(listItems);
+  // for (cont of arrayContainers) {
+  for (item of arrayItems) {
+      var whichFlower = String(Math.floor(Math.random() * 4) + 1);
+      item.setAttribute("class", "flower-bullet" + whichFlower);
+  }
+  // }
+</script>
 
 </html>

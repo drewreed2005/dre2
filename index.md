@@ -23,12 +23,6 @@ title: Student Blog
         border: 2px solid #9b59b6;
         padding: 0%;
     }
-
-    .flower-bullet1 {
-        list-style-image: url("{{site.baseurl}}/images/bullet-points/smallpinkSBflower.png");
-        background-repeat: no-repeat; /* Prevent image repetition */
-        background-size: auto; /* Automatically adjust the size based on text */;
-    }
 </style>
 
 <div class="title-header">Welcome to Drew's CSA Blog!</div>
@@ -64,14 +58,3 @@ I (Drew) have made many things using my code-code-coding skills, including...
     - A life sim game using AI-generated art backgrounds, mostly made to take advantage of JavaScript `async` functions.
 
 Outside of class, I've coded some small game projects using GameMaker Studio.
-
-<script>
-    // const listContainers = document.getElementsByTagName('ul');
-    // const listItems = document.getElementsByTagName('li');
-
-    // for (cont of listContainers) {
-    //     for (item of listItems) {
-    //         var whichFlower = String(Math.floor(Math.random() * 4) + 1);
-    //     }
-    // }
-</script>

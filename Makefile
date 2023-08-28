@@ -28,7 +28,7 @@ default: server
 	@# tail and awk work together to extract Jekyll regeneration messages
 	@# When a _notebook is detected in the log, call make convert in the background
 	@# Note: We use the "if ($$0 ~ /_notebooks\/.*\.ipynb/) { system(\"make convert &\") }" to call make convert
-	@(tail -f $(LOG_FILE) | awk '/Server address: http:\/\/0.0.0.0:$(PORT)\/$(REPO_NAME)\// { serverReady=1 } \
+	@(tail -f $(LOG_FILE) | awk '/Server address: http:\/\/0.0.0.0:$(PORT)\/dre2\// { serverReady=1 } \
 	serverReady && /^ *Regenerating:/ { regenerate=1 } \
 	regenerate { \
 		if (/^[[:blank:]]*$$/) { regenerate=0 } \
