@@ -31,7 +31,7 @@ After learning to code-code-code in CSP, Drew makes his grand return in CSA to c
 
 ## Who is Drew?
 
-<div class="image-container" style="margin:2%;margin-left:15%">
+<div class="image-container" style="margin:2%;margin-left:15%;">
     <img src="{{site.baseurl}}/images/me myself and i.png" alt='Stuff About Drew'>
 </div>
 
