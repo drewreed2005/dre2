@@ -4,6 +4,7 @@ comments: true
 layout: post
 title: Pixel Art Canvas
 description: Use it to create some cool pixel art and learn about hex codes!
+courses: { csa: {week: 0} }
 type: hacks
 ---
 
