@@ -25,9 +25,19 @@ type: plans
 
 ### Wednesday
 
-- LIVE REVIEW (hopefully)
+- LIVE REVIEW (nope)
 - Work on JavaScript elements of site background for more interesting variance (no spoilers)
 - Look into custom cursor
     - Remember .cur files
 
-### ...
+### Thursday
+
+- LIVE REVIEW (for real)
+- Customize Calculator and Snake
+- Add those JS Input and Output files and ideate
+    - Begin work?
+
+### Friday
+- LIVE REVIEW (for real)
+- Begin/continue work on JS Input and Output project
+- ...

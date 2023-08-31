@@ -26,6 +26,137 @@ HTML implementation of the calculator.
     Background is credited to Vanta JS and is implemented at bottom of this page
 -->
 <style>
+  /* STYLING PREFERENCES for SITE */
+
+  /* mixin used as a template for buttons */
+  .button {
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    background-color: #21807c;
+    border: 3px solid black;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: span 1;
+    grid-row: span 1;
+    transition: all 0.5s;
+  }
+
+  /* darkens the background color on hover to create a selecting effect */
+  .button:hover {
+    background-color: #373737;
+  }
+
+  /* "row style" is flexible size and aligns pictures in center */
+  .row {
+    align-items: center;
+    display: flex;
+  }
+
+  /* "column style" is one-third of the width with padding */
+  .column {
+    flex: 16.66%;
+    padding: 3px;
+  }
+
+  /* STYLING FOR CALCULATOR */
+
+  /* class to create the calculator's container; uses CSS grid display to partition off buttons */
+  .calculator-container {
+    width: 90vw; /* this width and height is specified for mobile devices by default */
+    height: 80vh;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 0.5fr repeat(4, 1fr);
+    gap: 10px 10px;
+  }
+
+  @media (min-width: 600px) {
+    .calculator-container {
+      width: 40vw;
+      height: 80vh;
+    }
+  }
+
+  /* styling for the calculator number button */
+  .calculator-number {
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    background-color: #3498db;
+    border: 3px solid black;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: span 1;
+    grid-row: span 1;
+    transition: all 0.3s;
+  }
+
+  /* styling for the calculator operation button */
+  .calculator-operation {
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    background-color: #ff6ec7;
+    border: 3px solid black;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: span 1;
+    grid-row: span 1;
+    transition: all 0.3s;
+  }
+
+  /* styling for the calculator clear button */
+  .calculator-clear {
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    background-color: #e68b1c;
+    border: 3px solid black;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: span 1;
+    grid-row: span 1;
+    transition: all 0.3s;
+  }
+
+  /* styling for the calculator equals button */
+  .calculator-equals {
+    width: auto;
+    height: auto;
+    color: gray;
+    border-radius: 10px;
+    background-color: #ffea00;
+    border: 3px solid black;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: span 1;
+    grid-row: span 1;
+    transition: all 0.3s;
+  }
+
+  .calculator-equals:hover {
+    background-color: #9b59b6;
+    color: white;
+  }
+
+  .calculator-clear:hover,
+  .calculator-operation:hover,
+  .calculator-number:hover {
+    background-color: #9b59b6; /* change background color on hover (orchid) */
+  }
+
   .calculator-output {
     /* calulator output 
       top bar shows the results of the calculator;
