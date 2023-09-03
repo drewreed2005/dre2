@@ -4,9 +4,14 @@
 {%- include head.html -%}
 
 <style>
+  body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
   .default-wrapper {
     padding-left: 30%;
-    padding-right: 30%;
+    padding-right: 26%;
     margin: 0%;
     background-color: black;
     color: #e0e0e0;
@@ -90,11 +95,53 @@
 
 
     <section id="list_check_region" class="default-wrapper" style="min-height:80vh;">
-      {{ content }}
+      <div id="section-text" style="z-index: 9999; overflow-y: hidden;"></div>
+        {{ content }}
+      </div>
     </section>
+
+    <div id="cloud-section" style="z-index: 1;">
+      <!--CLOUDS GO HERE-->
+    </div>
 
   </div>
 </body>
+<style>
+  .cloud-container0 {
+      position: absolute;
+      z-index: 1;
+      /*top: 20%;*/ /*consider again*/
+      left: -100px; /* Start off the screen on the left */
+      transform-origin: center;
+      animation: moveRotate0 40s linear infinite, blur 40s linear infinite alternate;
+  }
+
+  .cloud-container1 {
+      position: absolute;
+      z-index: 1;
+      /*top: 20%;*/ /*consider again*/
+      left: -100px; /* Start off the screen on the left */
+      transform-origin: center;
+      animation: moveRotate1 40s linear infinite, blur 40s linear infinite alternate;
+  }
+
+  .cloud {
+      width: 25vw;
+      z-index: 1;
+      height: auto;
+      opacity: 0.9; /* adjust opacity as needed */
+      transition: filter 0.5s ease; /* smoothly transition blur effect */
+  }
+
+  @keyframes blur {
+      0% {
+          filter: blur(2px);
+      }
+      100% {
+          filter: blur(5px); /* adjust blur amount as needed */
+      }
+  }
+</style>
 
 <script>
   const checkRegion = document.getElementById("list_check_region");
@@ -108,6 +155,60 @@
       item.setAttribute("class", "flower-bullet" + whichFlower);
   }
   // }
+</script>
+
+<script>
+  // getting a height reference from the body element
+  var bodyHeight = document.getElementById("list_check_region").clientHeight;
+  console.log(bodyHeight);
+  // variable for flower element replacement when it's time
+  var currentCloud = 0;
+  // variable for cloud images
+  var flowerArray = ["blue_flower", "green_flower", "light_blue_flower", "orange_flower", "pink_flower", "yellow_flower"];
+
+  var flowerObj1 = document.createElement("div");
+  var flowerObj2 = document.createElement("div");
+  var flowerStyle1 = document.createElement("style");
+  var flowerStyle2 = document.createElement("style");
+
+  var flowerObjects = [flowerObj1, flowerObj2];
+  var flowerStyles = [flowerStyle1, flowerStyle2];
+
+  function flowerSystem() {
+      // generating heights
+      var startHeight = Math.floor(Math.random() * (bodyHeight - 400)) + 350;
+      var endHeight = Math.floor(Math.random() * (bodyHeight - 400)) + 350;
+      console.log(startHeight, endHeight);
+
+      // creating animation
+      var currentStyleElement = flowerStyles[currentCloud % 2];
+      var currentAnimation = `@keyframes moveRotate` + String(currentCloud % 2) + ` {
+          0% {
+              transform: translateX(-20vw) translateY(-${startHeight}px) rotate(0deg);
+          }
+          100% {
+              transform: translateX(120vw) translateY(-${endHeight}px) rotate(360deg);
+          }
+      }`
+      currentStyleElement.textContent = currentAnimation;
+      document.body.appendChild(currentStyleElement);
+
+      // creating flower object
+      var currentContainer = flowerObjects[currentCloud % 2];
+      currentContainer.innerHTML = ""; // reset
+      currentContainer.setAttribute("class", "cloud-container" + String(currentCloud % 2));
+      var flowerImg = document.createElement("img");
+      flowerImg.setAttribute("src", "{{site.baseurl}}/images/flower-clouds/" + flowerArray[Math.floor(Math.random() * 6)] + ".png");
+      flowerImg.setAttribute("class", "cloud");
+      currentContainer.appendChild(flowerImg);
+      document.getElementById("cloud-section").appendChild(currentContainer);
+
+      // increment which cloud variable
+      currentCloud++;
+  }
+
+  flowerSystem();
+  setInterval(flowerSystem, 20000);
 </script>
 
 </html>
