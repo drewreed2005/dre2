@@ -39,5 +39,6 @@ type: plans
 
 ### Friday
 - LIVE REVIEW (for real)
-- Begin/continue work on JS Input and Output project
-- ...
+- Begin/continue work on JS Input and Output project for live review
+- Ideate pair programming project with Jishnu
+- Begin blogs annotating JS pages
