@@ -14,7 +14,8 @@ Find your favorite Pokémon in the Pokédex!
 
 Input a Pokémon: <input id="search_box" type="text" width="100"> <button id="search_button" onclick="fetchData()">Search</button>
 
-<div id="big_container">
+<div id="loading" style="display:none;"></div>
+<div id="big_container" style="display:none;">
     <div id="base_data" class="info_container">
         <div id="images" class="info_container">
             <div id="image_n" class="poke_image">
@@ -24,10 +25,11 @@ Input a Pokémon: <input id="search_box" type="text" width="100"> <button id="se
                 <!--SHINY IMAGE HERE-->
             </div>
         </div>
-        <div id="basic_info" style="width:340px;border: 2px solid white; margin: 5px; line-height: 1; text-align: center;">
+        <div id="basic_info" style="width:340px;border: 2px solid white; margin: 5px; line-height: 0.8; text-align: center;">
             <h3 id="poke_name_header"><!--POKEMON NAME HERE--></h3>
             <h4 id="species_box"></h4>
             <div id="typing_box" style="display: flex; justify-content:center;"></div>
+            <div id="evolution_box"></div>
             <div id="pokedex_entry_box" style="margin: 5px;">
                 <!--POKEDEX ENTRY HERE-->
             </div>
@@ -124,6 +126,7 @@ Input a Pokémon: <input id="search_box" type="text" width="100"> <button id="se
     };
 
     // establishing global variables
+    const loadingBox = document.getElementById("loading");
     var movesArray = [];
     var defaultData = [];
     var speciesData = [];
@@ -131,6 +134,11 @@ Input a Pokémon: <input id="search_box" type="text" width="100"> <button id="se
 
     // function to fetch data based on user input
     function fetchData() {
+        // don't show big container yet
+        document.getElementById("big_container").style.display = "none";
+        loadingBox.style.display = "block";
+        loadingBox.innerHTML = "Loading...";
+
         // prepare fetch options
         var url = "https://pokeapi.co/api/v2/pokemon/" + pokeSearch.value.toLowerCase();
         var options = {
@@ -197,6 +205,12 @@ Input a Pokémon: <input id="search_box" type="text" width="100"> <button id="se
                                     }
                                     document.getElementById("poke_name_header").innerHTML = pokeName.toUpperCase() + " (#" + pokeId.toString() + ")";
                                     document.getElementById("species_box").innerHTML = pokeSpecies;
+                                    if (speciesData["evolves_from_species"]) {
+                                        var evolvesFrom = "The evolved form of " + speciesData["evolves_from_species"]["name"].charAt(0).toUpperCase() + speciesData["evolves_from_species"]["name"].slice(1) + ".";
+                                    } else {
+                                        var evolvesFrom = "Unevolved Pokémon.";
+                                    }
+                                    document.getElementById("evolution_box").innerHTML = evolvesFrom;
                                     generateEntry();
 
                                     // stats box
@@ -206,6 +220,9 @@ Input a Pokémon: <input id="search_box" type="text" width="100"> <button id="se
                                         statContainer.style.backgroundColor = valueToColor(stat["base_stat"]);
                                         statContainer.innerHTML = statConversion[stat["stat"]["name"]] + ": " + String(stat["base_stat"]);
                                     }
+                                    loadingBox.style.display = "none";
+                                    loadingBox.innerHTML = "";
+                                    document.getElementById("big_container").style.display = "block";
                                 })
                             })
                         })
@@ -214,6 +231,7 @@ Input a Pokémon: <input id="search_box" type="text" width="100"> <button id="se
             })
             .catch(err => {
                 console.error(err);
+                loadingBox.innerHTML = "Your Pokémon couldn't be found! Make sure you've spelled its name right.";
             });
     }
 
