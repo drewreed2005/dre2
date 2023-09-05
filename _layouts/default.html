@@ -86,6 +86,9 @@
         background-size: auto; /* Automatically adjust the size based on text */;
     }
 </style>
+<script>
+  var flowerDisable = false;
+</script>
 <body>
 
   <div class="wrapper" style="padding:0px">
@@ -94,13 +97,13 @@
     </header>
 
 
-    <section id="list_check_region" class="default-wrapper" style="min-height:80vh;z-index: 9999;">
+    <section id="list_check_region" class="default-wrapper" style="min-height:80vh; z-index: 1;">
       <div id="section-text" style="z-index: 9999; overflow-y: hidden;"></div>
         {{ content }}
       </div>
     </section>
 
-    <div id="cloud-section" style="z-index: 1;">
+    <div id="cloud-section" style="z-index: 2;">
       <!--CLOUDS GO HERE-->
     </div>
 
@@ -175,6 +178,9 @@
   var flowerStyles = [flowerStyle1, flowerStyle2];
 
   function flowerSystem() {
+      // disable feature
+      if (flowerDisable) {return;}
+
       // generating heights
       var startHeight = Math.floor(Math.random() * (bodyHeight - 400)) + 350;
       var endHeight = Math.floor(Math.random() * (bodyHeight - 400)) + 350;

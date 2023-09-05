@@ -8,7 +8,7 @@ courses: { csa: {week: 2} }
 type: hacks
 ---
 
-## Improved Music API
+## Music API
 
 <!-- Input box and button for filter -->
 <div>
