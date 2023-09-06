@@ -27,4 +27,11 @@ type: plans
 
 ### Wednesday
 
+- Finish working demo of Silver Screen Stats locally, to be moved over
+- Plan out specific deadlines for Silver Screen Stats projects
+- Finish Review Ticket
+- Possible Extra: Compile possible cursors?
+
+### Thursday
+
 - ...

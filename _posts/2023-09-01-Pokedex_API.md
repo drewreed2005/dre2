@@ -158,6 +158,7 @@ Input a Pokémon: <input id="search_box" type="text" width="100"> <button id="se
                 if (response.status !== 200) {
                     var errorMsg = 'Database response error: ' + response.status;
                     console.log(errorMsg);
+                    loadingBox.innerHTML = "Your Pokémon couldn't be found! Make sure you've spelled its name right.";
                 }
                 // valid response will have JSON data
                 response.json().then(data => {
