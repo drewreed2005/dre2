@@ -29,14 +29,11 @@ Try to guess between the states of different movies!
 <div id="results"></div>
 <div id="timer"></div>
 
-<img src="{{site.baseurl}}/images/cursors/paint_cursor.png" width="100">
+<img src="{{site.baseurl}}/images/cursors/paint_cursor.png" width="100"><br>
 <button id="cursor_shop0" onclick="cursorPurchase(10000, 0)">Buy Paint Cursor (10,000 score)</button>
 
-<style>
-    html {
-        cursor: url('{{site.baseurl}}/images/cursors/paint_cursor.cur'), auto;
-    }
-</style>
+<img src="{{site.baseurl}}/images/cursors/mort_cursor.png" width="100"><br>
+<button id="cursor_shop1" onclick="cursorPurchase(100000, 1)">Buy Mort Cursor (100,000 score)</button>
 
 <script>
     // disable flowers
@@ -47,7 +44,7 @@ Try to guess between the states of different movies!
     const firstMovie = document.getElementById("movie0");
     const secondMovie = document.getElementById("movie1");
     const timerBox = document.getElementById("timer");
-    const cursorPaths = ["paint_cursor"];
+    const cursorPaths = ["paint_cursor", "mort_cursor"];
     let timerVar; //global for timer stopping/starting
     var currentTime = 10; // global time
     var currentMovies = [];
@@ -137,11 +134,13 @@ Try to guess between the states of different movies!
         timerSet(false); // stop the interval
         console.log(int);
         currentMovieScores = [];
+
         for (movie of currentMovies) {
             currentMovieScores.push(movie["vote_average"]);
         }
         for (let i = 0; i < 2; i++) {
             document.getElementById("poster" + String(i)).style["filter"] = "blur(3px)";
+            document.getElementById("poster" + String(i)).setAttribute("onclick", "");
             document.getElementById("results" + String(i)).innerHTML = currentMovieScores[i];
         }
         console.log(currentMovieScores);
