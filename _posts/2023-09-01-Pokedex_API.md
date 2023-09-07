@@ -30,7 +30,7 @@ Input a Pokémon: <input id="search_box" type="text" width="100"> <button id="se
             <h4 id="species_box"></h4>
             <div id="typing_box" style="display: flex; justify-content:center;"></div>
             <div id="evolution_box"></div>
-            <div id="pokedex_entry_box" style="margin: 5px;">
+            <div id="pokedex_entry_box" style="margin: 5px; line-height: 1;">
                 <!--POKEDEX ENTRY HERE-->
             </div>
             <button id="new_entry_button" onclick="generateEntry()" style="margin-bottom: 5px;">Generate New Entry</button>
@@ -87,12 +87,15 @@ Input a Pokémon: <input id="search_box" type="text" width="100"> <button id="se
     }
 </style>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script>
     // disable flowers
     flowerDisable = true;
 
     // pokemon name input
     const pokeSearch = document.getElementById("search_box");
+    pokeSearch.addEventListener("keydown", enterHandler);
 
     // colors for typings
     const typeColors = {
@@ -132,10 +135,20 @@ Input a Pokémon: <input id="search_box" type="text" width="100"> <button id="se
     var speciesData = [];
     var evolutionData = [];
 
+    // handle presses to enter key
+    function enterHandler(event) {
+        if (event.keyCode === 13) {
+            fetchData(); // if enter is pressed in input button, the fetchData runs
+        }
+    }
+
+    // USING POKEAPI
     // function to fetch data based on user input
     function fetchData() {
         // don't show big container yet
-        document.getElementById("big_container").style.display = "none";
+        // document.getElementById("big_container").style.display = "none";
+        //jQuery
+        $("#big_container").hide();
         loadingBox.style.display = "block";
         loadingBox.innerHTML = "Loading...";
 
@@ -204,7 +217,9 @@ Input a Pokémon: <input id="search_box" type="text" width="100"> <button id="se
                                         typeIcon.innerHTML = type.charAt(0).toUpperCase() + type.slice(1);
                                         document.getElementById("typing_box").appendChild(typeIcon);
                                     }
-                                    document.getElementById("poke_name_header").innerHTML = pokeName.toUpperCase() + " (#" + pokeId.toString() + ")";
+                                    //document.getElementById("poke_name_header").innerHTML = pokeName.toUpperCase() + " (#" + pokeId.toString() + ")";
+                                    // jQuery
+                                    $("#poke_name_header").html(`${pokeName.toUpperCase()} (#${pokeId})`);
                                     document.getElementById("species_box").innerHTML = pokeSpecies;
                                     if (speciesData["evolves_from_species"]) {
                                         var evolvesFrom = "The evolved form of " + speciesData["evolves_from_species"]["name"].charAt(0).toUpperCase() + speciesData["evolves_from_species"]["name"].slice(1) + ".";
@@ -217,13 +232,15 @@ Input a Pokémon: <input id="search_box" type="text" width="100"> <button id="se
                                     // stats box
                                     for (stat of defaultData["stats"]) {
                                         var statContainer = document.getElementById(stat["stat"]["name"]);
-                                        statContainer.style.width = String(stat["base_stat"] * 2) + "px";
+                                        // jQuery
+                                        $(statContainer).css("width", `${stat["base_stat"] * 2}px`);
                                         statContainer.style.backgroundColor = valueToColor(stat["base_stat"]);
                                         statContainer.innerHTML = statConversion[stat["stat"]["name"]] + ": " + String(stat["base_stat"]);
                                     }
                                     loadingBox.style.display = "none";
                                     loadingBox.innerHTML = "";
-                                    document.getElementById("big_container").style.display = "block";
+                                    // document.getElementById("big_container").style.display = "block";
+                                    $("#big_container").show();
                                 })
                             })
                         })

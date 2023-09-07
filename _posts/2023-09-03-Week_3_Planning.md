@@ -34,4 +34,12 @@ type: plans
 
 ### Thursday
 
+- LIVE REVIEW
+    - Show SSS progress
+    - Show Lab Notebook with Java update, Pokedex, cell notes and this plan
+- Continue work styling for Silver Screen Stats
+- Cursor hunting
+
+### Friday
+
 - ...
