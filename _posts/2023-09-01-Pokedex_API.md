@@ -76,7 +76,7 @@ Input a Pokémon: <input id="search_box" type="text" width="100"> <button id="se
         color: #fff;
         font-size: 14px;
         text-align: center;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
     }
 
     .stat_box {
