@@ -183,7 +183,8 @@ Try to guess between the states of different movies!
 
     function cursorPurchase(cost, whichCursor) {
         if (playerScore >= cost) {
-            playerScore - cost;
+            playerScore -= cost;
+            updateScore();
             document.body.style.cursor = 'url("/dre2/images/cursors/' + cursorPaths[whichCursor] + '.cur"), auto';
             results.innerHTML = "Thanks for your purchase!";
         } else {
