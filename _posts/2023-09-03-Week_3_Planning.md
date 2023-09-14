@@ -4,7 +4,7 @@ comments: true
 layout: post
 title: Planning 3
 description: My plans for the fourth week (third full week) of the school year.
-courses: { csa: {week: 2} }
+courses: { csa: {week: 3} }
 type: plans
 ---
 
@@ -42,4 +42,6 @@ type: plans
 
 ### Friday
 
-- ...
+- Finish styling for website model of SSS
+- Troubleshoot floating background clouds
+- Continue cursor hunting
