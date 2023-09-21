@@ -22,3 +22,9 @@ type: plans
     - Begin editing?
 - Begin planning for lesson
 - Watch videos
+
+### Thursday
+
+- Finish live review
+    - Take notes and grade
+- Continue planning
