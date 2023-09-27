@@ -28,3 +28,10 @@ type: plans
 - Finish live review
     - Take notes and grade
 - Continue planning
+
+### Friday
+
+- Finalize peer grading
+- Collect resources/recordings for edited video
+- Begin scripting out lesson
+- Continue working to understand Dijkstra
