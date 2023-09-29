@@ -1,5 +1,5 @@
 ---
-title: Custom Jokes-Based API Pull
+title: Custom Survey API Pull
 layout: default
 description: An API pull from a blog-based local backend to show understanding of JPA.  
 courses: { csa: {week: 6} }
@@ -27,15 +27,17 @@ type: hacks
   const resultContainer = document.getElementById("result");
 
   // keys for joke reactions
-  const HAHA = "haha";
-  const BOOHOO = "boohoo";
+  const AGREE = "agree";
+  const DISAGREE = "disagree";
+  const NEITHER = "neither";
 
   // prepare fetch urls
   // const url = "https://flask.nighthawkcodingsociety.com/api/jokes";
-  const url = "http://0.0.0.0:8085/api/jokes"; //https://spring.nighthawkcodingsociety.com/api/jokes
+  const url = "http://0.0.0.0:8085/api/survey"; //https://spring.nighthawkcodingsociety.com/api/jokes
   const get_url = url +"/";
-  const like_url = url + "/like/";  // haha reaction
-  const jeer_url = url + "/jeer/";  // boohoo reaction
+  const agr_url = url + "/agree/";  // agree reaction
+  const dis_url = url + "/disagree/";  // disagree reaction
+  const nei_url = url + "/neither/";  // neither reaction
 
   // prepare fetch GET options
   const options = {
@@ -66,40 +68,56 @@ type: hacks
       // valid response will have JSON data
       response.json().then(data => {
           console.log(data);
+          var i = 0;
           for (const row of data) {
+            // increment id variable
+            i++;
+
             // make "tr element" for each "row of data"
             const tr = document.createElement("tr");
             
             // td for joke cell
-            const joke = document.createElement("td");
-              joke.innerHTML = row.id + ". " + row.joke;  // add fetched data to innerHTML
+            const survey = document.createElement("td");
+              survey.innerHTML = String(i) + ". " + row.survey;  // add fetched data to innerHTML
 
             // td for haha cell with onclick actions
-            const haha = document.createElement("td");
-              const haha_but = document.createElement('button');
-              haha_but.id = HAHA+row.id   // establishes a HAHA JS id for cell
-              haha_but.innerHTML = row.haha;  // add fetched "haha count" to innerHTML
-              haha_but.onclick = function () {
+            const agree = document.createElement("td");
+              const agree_but = document.createElement('button');
+              agree_but.id = AGREE+row.id   // establishes a HAHA JS id for cell
+              agree_but.innerHTML = row.agree;  // add fetched "haha count" to innerHTML
+              agree_but.onclick = function () {
                 // onclick function call with "like parameters"
-                reaction(HAHA, like_url+row.id, haha_but.id);  
+                reaction(AGREE, agr_url+row.id, agree_but.id);  
               };
-              haha.appendChild(haha_but);  // add "haha button" to haha cell
+              agree.appendChild(agree_but);  // add "haha button" to haha cell
 
             // td for boohoo cell with onclick actions
-            const boohoo = document.createElement("td");
-              const boohoo_but = document.createElement('button');
-              boohoo_but.id = BOOHOO+row.id  // establishes a BOOHOO JS id for cell
-              boohoo_but.innerHTML = row.boohoo;  // add fetched "boohoo count" to innerHTML
-              boohoo_but.onclick = function () {
+            const disagree = document.createElement("td");
+              const disagree_but = document.createElement('button');
+              disagree_but.id = DISAGREE+row.id  // establishes a BOOHOO JS id for cell
+              disagree_but.innerHTML = row.disagree;  // add fetched "boohoo count" to innerHTML
+              disagree_but.onclick = function () {
                 // onclick function call with "jeer parameters"
-                reaction(BOOHOO, jeer_url+row.id, boohoo_but.id);  
+                reaction(DISAGREE, dis_url+row.id, disagree_but.id);  
               };
-              boohoo.appendChild(boohoo_but);  // add "boohoo button" to boohoo cell
+              disagree.appendChild(disagree_but);  // add "boohoo button" to boohoo cell
+
+            // td for boohoo cell with onclick actions
+            const neither = document.createElement("td");
+              const neither_but = document.createElement('button');
+              neither_but.id = NEITHER+row.id  // establishes a BOOHOO JS id for cell
+              neither_but.innerHTML = row.neither;  // add fetched "boohoo count" to innerHTML
+              neither_but.onclick = function () {
+                // onclick function call with "jeer parameters"
+                reaction(NEITHER, nei_url+row.id, neither_but.id);  
+              };
+              neither.appendChild(neither_but);  // add "boohoo button" to boohoo cell
              
             // this builds ALL td's (cells) into tr (row) element
             tr.appendChild(joke);
-            tr.appendChild(haha);
-            tr.appendChild(boohoo);
+            tr.appendChild(agree);
+            tr.appendChild(disagree);
+            tr.appendChild(neither);
 
             // this adds all the tr (row) work above to the HTML "result" container
             resultContainer.appendChild(tr);
@@ -127,10 +145,12 @@ type: hacks
       response.json().then(data => {
           console.log(data);
           // Likes or Jeers updated/incremented
-          if (type === HAHA) // like data element
-            document.getElementById(elemID).innerHTML = data.haha;  // fetched haha data assigned to haha Document Object Model (DOM)
-          else if (type === BOOHOO) // jeer data element
-            document.getElementById(elemID).innerHTML = data.boohoo;  // fetched boohoo data assigned to boohoo Document Object Model (DOM)
+          if (type === AGREE) // like data element
+            document.getElementById(elemID).innerHTML = data.agree;  // fetched haha data assigned to haha Document Object Model (DOM)
+          else if (type === DISAGREE) // jeer data element
+            document.getElementById(elemID).innerHTML = data.disagree;  // fetched boohoo data assigned to boohoo Document Object Model (DOM)
+          else if (type === NEITHER)
+            document.getElementById(elemID).innerHTML = data.neither;
           else
             error("unknown type: " + type);  // should never occur
       })
