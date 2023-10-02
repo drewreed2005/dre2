@@ -23,7 +23,14 @@ type: plans
 
 - Tech talk
 - Begin work with JPA
+    - Brainstorm jokes replacement
 
 ### Thursday
 
-- ...
+- Minimum day, continue work with Survey API
+- Begin ticket planning for ideation video
+
+### Friday
+
+- Continue ticket planning ideation video
+- Plan out group's lessons
