@@ -10,9 +10,10 @@ type: hacks
 <table>
   <thead>
   <tr>
-    <th>Joke</th>
-    <th>Like</th>
-    <th>Dislike</th>
+    <th>Question</th>
+    <th>Agree</th>
+    <th>Disagree</th>
+    <th>Neither</th>
   </tr>
   </thead>
   <tbody id="result">
