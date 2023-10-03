@@ -15,4 +15,12 @@ type: plans
 
 ### Tuesday
 
+- Student lesson
+- Continue video planning
+    - Record for presentation?
+- Create diagrams for project video
+    - This is planning
+
+### Wednesday
+
 - ...
