@@ -2,9 +2,9 @@
 toc: false
 comments: true
 layout: post
-title: Planning 6
-description: My plans for the sixth week (fifth full week) of the school year.
-courses: { csa: {week: 6} }
+title: Planning 7
+description: My plans for the seventh week (sixth full week) of the school year.
+courses: { csa: {week: 7} }
 type: plans
 ---
 
