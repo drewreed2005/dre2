@@ -23,4 +23,19 @@ type: plans
 
 ### Wednesday
 
-- ...
+- Finish UML diagrams for planning videos
+- Assign parts to planning video and decide on recording
+- Finish working JPA demo of Usr database
+
+### Thursday
+
+- Minimum day
+- Work on student lesson
+- Finalize recording planning
+
+### Friday
+
+- LIVE REVIEW!
+    - Show video
+    - If possible: go over tickets and JPA
+- Continue student lesson homework
