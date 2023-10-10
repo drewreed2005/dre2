@@ -16,4 +16,10 @@ type: plans
 
 ### Tuesday
 
+- Booleans, If lesson work
+- Finish my student lesson portion
+- Look into JWT, read through blog
+
+### Wednesday
+
 - ...
