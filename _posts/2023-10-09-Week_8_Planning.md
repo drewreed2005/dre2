@@ -22,4 +22,17 @@ type: plans
 
 ### Wednesday
 
-- ...
+- Work on contributing to JWT work in Java backend with Usr database
+- Start work on backend display of database
+- Finish student lesson work from tuesday
+
+### Thursday
+
+- Iteration lesson work
+- Continue JWT work if possible
+
+### Friday
+
+- Finish Iteration lesson work
+- Finish JWT configuration on backend
+- Continue with backend login example
