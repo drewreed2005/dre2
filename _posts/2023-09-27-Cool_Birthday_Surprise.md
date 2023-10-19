@@ -12,7 +12,7 @@ description: An incredible birthday surprise.
 <script>
     function bdayHappening() {
         document.getElementById("bday_button").style.display = "none";
-        document.getElementById("bday_text").innerHTML = "Hapy brithday Sean";
+        document.getElementById("bday_text").innerHTML = "Hapy brithday Michelle Reed";
         document.getElementById("click_this").style.display = "block";
     }
 </script>
