@@ -10,7 +10,7 @@ type: tangibles
 
 ## Login and Get Pull
 
-Input email: <input id="uid" type="text">
+Input email: <input id="email" type="text">
 <br>
 Input password: <input id="password" type="text">
 <button onclick="login_user()">Log in Usr</button>
