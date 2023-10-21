@@ -106,13 +106,19 @@ Input first and last name: <input id="name_creator" type="text">
     }
 
     function create_user() {
-        var createBody = {
+        const createBody = {
             email: document.getElementById("email_creator").value,
             password: document.getElementById("password_creator").value,
             name: document.getElementById("name_creator").value
         };
+        // url encoding
+        const email = encodeURIComponent(document.getElementById("email_creator").value);
+        const password = encodeURIComponent(document.getElementById("password_creator").value);
+        const name = encodeURIComponent(document.getElementById("name_creator").value);
+        // updated post url
+        const updatedPostUrl = post_url + `?email=${email}&password=${password}&name=${name}`;
         // set options for cross origin header request
-        var postOptions = {
+        const postOptions = {
             method: 'POST',
             mode: 'cors', // no-cors, *cors, same-origin
             cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
@@ -124,7 +130,7 @@ Input first and last name: <input id="name_creator" type="text">
         };
 
         // fetch the API
-        fetch(post_url, postOptions)
+        fetch(updatedPostUrl, postOptions)
             // response is a RESTful "promise" on any successful fetch
             .then(response => {
             // check for response errors and display
