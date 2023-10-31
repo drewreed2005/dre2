@@ -33,15 +33,15 @@ Input first and last name: <input id="name_creator" type="text">
     // var url = "https://spring.nighthawkcodingsociety.com"
     // Comment out next line for local testing
     // Authenticate endpoint
-    const login_url = "http://localhost:8085/authenticate";
+    const login_url = "http://localhost:8084/authenticate";
     // prepare URL
     //var url = "https://spring.nighthawkcodingsociety.com/api/person/";
     // Uncomment next line for localhost testing
-    const read_url = "http://localhost:8085/api/usr/";
+    const read_url = "http://localhost:8084/api/usr/";
     //var url = "https://spring.nighthawkcodingsociety.com/api/person/";
     // Uncomment next line for localhost testing
-    const post_url = "http://localhost:8085/api/usr/post";
-    const put_url = "http://localhost:8085/api/usr/update";
+    const post_url = "http://localhost:8084/api/usr/post";
+    const put_url = "http://localhost:8084/api/usr/update";
 
     function login_user() {
         // Set body to include login data
