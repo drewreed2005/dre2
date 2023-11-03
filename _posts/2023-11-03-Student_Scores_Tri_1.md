@@ -34,7 +34,7 @@ type: tangibles
             </tr>
             <tr>
                 <td>Unit 5</td>
-                <td>Not yet graded</td>
+                <td>1</td>
             </tr>
             <tr>
                 <td>Unit 6</td>
@@ -58,7 +58,7 @@ type: tangibles
             </tr>
             <tr>
                 <td>Total</td>
-                <td>5.91/6.00</td>
+                <td>6.91/7.00</td>
             </tr>
         </tbody>
     </table>
