@@ -12,7 +12,7 @@ type: tangibles
 
 ### Overall
 
-<img src="images/Screen Shot 2023-11-03 at 9.48.21 AM.png">
+<img src="{{site.baseurl}}/images/Screen Shot 2023-11-03 at 9.48.21 AM.png">
 
 I've been constantly at work in computer science since the beginning of the year. My commits have grown even more frequent recently.
 
@@ -22,7 +22,7 @@ My current efforts are toward making more <i>frequent</i> commits. I still haven
 
 I am the backend developer of DADDJ. As a result, I only made direct commits from my computer on the backend, although I did influence some frontend materials shown later in this blog. As you can see below, I committed quite a lot, with many lines of code.
 
-<img src="images/Screen Shot 2023-11-03 at 9.39.12 AM.png">
+<img src="{{site.baseurl}}/images/Screen Shot 2023-11-03 at 9.39.12 AM.png">
 
 #### Early API Setup and Custom Java
 
