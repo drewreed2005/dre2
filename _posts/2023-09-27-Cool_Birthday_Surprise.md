@@ -12,7 +12,7 @@ description: An incredible birthday surprise.
 <script>
     function bdayHappening() {
         document.getElementById("bday_button").style.display = "none";
-        document.getElementById("bday_text").innerHTML = "Hapy (early) brithday to Justin Reed and me, Drew Reed";
+        document.getElementById("bday_text").innerHTML = "Hapy brithday to Michael A Reed, my dad";
         document.getElementById("click_this").style.display = "block";
     }
 </script>
